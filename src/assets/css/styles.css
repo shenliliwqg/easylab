@@ -1,0 +1,96 @@
+
+/*=====================*/
+.checkbox {
+  position: relative;
+  display: inline-block;
+}
+.checkbox:after, .checkbox:before {
+  font-family: FontAwesome;
+  -webkit-font-feature-settings: normal;
+     -moz-font-feature-settings: normal;
+          font-feature-settings: normal;
+  -webkit-font-kerning: auto;
+     -moz-font-kerning: auto;
+          font-kerning: auto;
+  -webkit-font-language-override: normal;
+     -moz-font-language-override: normal;
+          font-language-override: normal;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  text-rendering: auto;
+}
+.checkbox label {
+  width: 28px;
+  height: 16px;
+  background: #ccc;
+  position: relative;
+  display: inline-block;
+  border-radius: 46px;
+  -webkit-transition: 0.4s;
+  vertical-align: middle;
+  transition: 0.4s;
+}
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  left: 0;
+  top: -5px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 16px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+.model-3 .checkbox span{
+  display: none;
+  vertical-align: middle;
+  margin-left: 2px;
+
+}
+.model-3 .checkbox span.no{
+  display: inline-block;
+}
+.checkbox input:hover + label:after {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.model-3 .checkbox label {
+  background: #bbb;
+  border: 2px solid #d2d2d2;
+  height: 16px;
+}
+.model-3 .checkbox label:after {
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+}
+.model-3 .checkbox input:checked+label+span{
+  display: inline-block;
+}
+.model-3 .checkbox input:checked+label+span+span{
+  display: none;
+}
+.model-3 .checkbox input:checked +label{
+  background: #5E078C;
+}
+.model-3 .checkbox input:checked + label:after {
+  left: 12px;
+}
