@@ -2,15 +2,21 @@
 <template>
   <div id="app">
     <headers></headers>
-    <router-view/>
+    <router-view></router-view>
     <footers></footers>
     <bounce></bounce>
   </div>
 </template>
 <!--行为-->
 <script>
+  import Headers from './header_footer/headers'
+  import Footers from './header_footer/footers'
 export default {
   name: 'App',
+  components:{
+    Headers,Footers
+  }
+
 }
 </script>
 <!--样式-->

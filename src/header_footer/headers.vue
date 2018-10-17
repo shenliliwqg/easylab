@@ -51,7 +51,10 @@
         <div class="fl navs">
           <ul>
             <li class="fl">
-                <a href="">首页</a>
+              <a href="#">
+                <router-link to="/">首页</router-link>
+              </a>
+
             </li>
             <li class="fl dropdown">
               <p class="dropdown_arrow">
@@ -64,7 +67,8 @@
                 <a href="">获客渠道</a>
             </li>
             <li class="fl">
-                <a href="">公司主页</a>
+              <a href="#"></a>
+                <router-link to="/compay">公司主页</router-link>
             </li>
           </ul>
         </div>

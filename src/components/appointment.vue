@@ -34,12 +34,6 @@
 
 <style scoped lang="less">
   .information{
-    width:100% ;
-    background: #fff;
-    margin-bottom: 16px;
-    height:(360+50)/2px;
-    overflow: hidden;
-
     ul{
       padding: 8px 27px 8px 22px;
       li{

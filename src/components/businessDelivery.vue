@@ -64,56 +64,6 @@
       },
       //定义方法
       methods:{
-        checkedAll:function () {
-          //  全选和反选
-          this.checked=!this.checked;
-          var _this = this;
-          if (this.checked==false) {//实现反选
-            _this.checkboxModel=[]
-            _this.businessList.forEach(function() {
-              _this.checkboxModel.push(false);
-            });
-          }else{//实现全选
-            _this.checkboxModel = [];
-            _this.businessList.forEach(function() {
-              _this.checkboxModel.push(true);
-            });
-          }
-        },
-        clickOne:function (index) {
-          this.checkboxModel[index]=!this.checkboxModel[index];
-          var count = 0;
-          this.checkboxModel.map(function(a) {
-            if(a) {
-              count++;
-            }
-          });
-          // 返回设置的变量
-          if(count==this.businessList.length){
-            this.checked=true
-          }else{
-            this.checked=false
-          }
-        },
-        alreadConnect:function () {
-          var arr=this.yesOrNo;
-          this.yesOrNo=[];
-        //  已联系
-         for(var i=0;i<this.checkboxModel.length;i++){
-           if(this.checkboxModel[i]){
-              this.yesOrNo[i]=true
-           }else{
-             this.yesOrNo[i]=arr[i]
-           }
-         }
-        },
-        ready:function () {
-          var len=this.businessList.length;
-          for(var i=0;i<len;i++){
-            this.yesOrNo[i]=this.businessList[i].isChecked;
-            this.checkboxModel[i]=false;
-          }
-        }
       },
       created(){
         this.businessList=[
