@@ -5,10 +5,10 @@
       <swiper :options="swiperOption" >
         <!-- slides -->
         <swiper-slide>
-          <img src="../assets/images/banner4.jpg" alt="">
+          <img src="../../assets/images/banner4.jpg" alt="">
         </swiper-slide>
         <swiper-slide>
-          <img src="../assets/images/banner5.jpg" alt="">
+          <img src="../../assets/images/banner5.jpg" alt="">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>

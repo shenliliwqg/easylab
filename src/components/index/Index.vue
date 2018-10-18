@@ -2,7 +2,7 @@
     <div class="container content" >
       <!--常用管理-->
       <div id="commonManage" class="fl">
-        <commonManage></commonManage>
+        <commonManage :managementList="managementList"></commonManage>
       </div>
       <div id="mainContent" class="fl">
         <!--平台公告-->
@@ -107,7 +107,7 @@
           <div class="storeInfo">
             <a href='http://task.yikexue.com/org/shop_index?uid=12301' style="cursor:pointer" class="clearfix">
               <div class="img">
-                <img src="../assets/images/detail.png" onerror="this.src='../assets/images/detail.png'" alt="">
+                <img src="../../assets/images/detail.png" onerror="this.src='../assets/images/detail.png'" alt="">
                 <span v-if="true" class="certified">已认证</span>
                 <span v-else class="uncertified">未认证</span>
               </div>
@@ -140,7 +140,7 @@
         <div class="signUpImmediately">
           <div class="img">
             <a href="">
-              <img src="../assets/images/3.jpg" alt="">
+              <img src="../../assets/images/3.jpg" alt="">
             </a>
           </div>
           <p>
@@ -157,13 +157,13 @@
             <swiper :options="swiperOption" >
               <!-- slides -->
               <swiper-slide>
-                <img src="../assets/images/banner4.jpg" alt="">
+                <img src="../../assets/images/banner4.jpg" alt="">
               </swiper-slide>
               <swiper-slide>
-                <img src="../assets/images/banner_service.jpg" alt="">
+                <img src="../../assets/images/banner_service.jpg" alt="">
               </swiper-slide>
               <swiper-slide>
-                <img src="../assets/images/banner5.jpg" alt="">
+                <img src="../../assets/images/banner5.jpg" alt="">
               </swiper-slide>
               <!-- Optional controls -->
               <div class="swiper-pagination"  slot="pagination"></div>
@@ -229,6 +229,62 @@
               clickable :true,
             }
           },
+          managementList:[
+            {
+              cateory:"仪器管理",
+              list:[
+                {
+                  name:'添加仪器',
+                  url:"http://www.yikexue.com"
+                },
+                {
+                  name:'所有仪器',
+                  url:"http://yqgx.yikexue.com/"
+                }
+              ]
+            },
+            {
+              cateory:"服务管理",
+              list:[
+                {
+                  name:'添加服务',
+                  url:"http://www.yikexue.com"
+                },
+                {
+                  name:'服务列表',
+                  url:"http://task.yikexue.com/service?ky="
+                }
+              ]
+
+            },
+            {
+              cateory:"交易管理",
+              list:[
+                {
+                  name:'添加交易',
+                  url:"http://www.yikexue.com"
+                },
+                {
+                  name:'交易列表',
+                  url:"http://www.yikexue.com"
+                }
+              ]
+
+            },
+            {
+              cateory:"项目管理",
+              list:[
+                {
+                  name:'跟进中的项目',
+                  url:""
+                },
+                {
+                  name:'已开展的项目',
+                  url:""
+                }
+              ]
+            }
+          ]
         }
       },
       methods:{

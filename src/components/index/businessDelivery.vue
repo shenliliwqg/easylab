@@ -95,9 +95,9 @@
 </script>
 
 <style scoped lang="less">
-  @import "../assets/css/default.css";
-  @import "../assets/css/normalize.css";
-  @import "../assets/css/styles.css";
+  @import "../../assets/css/default.css";
+  @import "../../assets/css/normalize.css";
+  @import "../../assets/css/styles.css";
   .businessDelivery{
     background: #fff;
     padding-bottom: 26px;
@@ -175,7 +175,7 @@
           z-index:1;
           opacity: 0;
           &:checked+b{
-            background: url('../assets/images/checked.png') -2px -2px;
+            background: url('../../assets/images/checked.png') -2px -2px;
             border: none;
           }
         }
