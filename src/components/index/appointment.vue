@@ -1,5 +1,7 @@
 <template>
-  <div>
+
+  <div id="appointment" class="information">
+    <div>
     <h1><span>预约动态</span><a target="_blank" href="javascript:void(0)" class="more">更多&gt;</a></h1>
     <ul>
       <li>
@@ -24,6 +26,7 @@
       </li>
     </ul>
   </div>
+  </div>
 </template>
 
 <script>
@@ -33,6 +36,10 @@
 </script>
 
 <style scoped lang="less">
+  #appointment{
+    background: #fff;
+    margin-bottom: 15px;
+  }
   .information{
     ul{
       padding: 8px 27px 8px 22px;

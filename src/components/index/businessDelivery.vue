@@ -64,6 +64,15 @@
       },
       //定义方法
       methods:{
+        clickOne:function () {
+
+        },
+        alreadConnect:function () {
+
+        },
+        checkedAll:function () {
+
+        }
       },
       created(){
         this.businessList=[
@@ -89,7 +98,7 @@
             isChecked:true
           }
         ];
-        this.ready();
+        // this.ready();
       }
     }
 </script>
@@ -98,6 +107,11 @@
   @import "../../assets/css/default.css";
   @import "../../assets/css/normalize.css";
   @import "../../assets/css/styles.css";
+
+  #businessDelivery{
+    background: #fff;
+    margin-bottom: 15px;
+  }
   .businessDelivery{
     background: #fff;
     padding-bottom: 26px;

@@ -1,15 +1,15 @@
 <template>
     <div id="mask">
-        <div class="mask_content">
-          <h1 class="title"></h1>
+        <div class="mask_content" >
+          <h1 class="title">{{maskTitle}}</h1>
           <div class="content">
-
+            <slot name="storeState"></slot>
           </div>
           <div class="btns">
             <button class="save btn">
               保存
             </button>
-            <button class="btn cancel">取消</button>
+            <button class="btn cancel" @click="maskHide">取消</button>
           </div>
         </div>
     </div>
@@ -18,15 +18,26 @@
 <script>
   export default {
       name: "bounce",
+      props:{
+        maskTitle:{
+          type:String,
+          default:'标题'
+        }
+      },
+    methods:{
+      maskHide:function () {
+       console.log(this.maskShow)
+      }
+    }
     }
 
 
 </script>
 
-<style  lang="less">
+<style  lang="less" scoped>
   #mask{
     position: fixed;
-    display: none;
+    /*display: none;*/
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.6);
@@ -82,49 +93,4 @@
     }
   }
 
-  .storeState{
-    padding-top: 20px;
-    .img{
-      width:54px;
-      height:44px;
-      display: block;
-      margin: 0 auto 20px;
-      background: url("../assets/images/3.jpg");
-      background-size: 100%;
-    }
-    label{
-      font-size: 14px;
-      color: #333;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    p{
-      span,b,input{
-        width:14px;
-        cursor: pointer;
-        vertical-align: middle;
-        height:14px;
-        top: -1px;
-        line-height: 10px;
-        display: inline-block;
-        position: relative;
-
-      }
-      b{
-        border: 2px solid #e5e5e5;
-        background: #fff;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-      }
-      input{
-        position: absolute;
-        opacity: 0;
-        z-index: 1;
-        &:checked+b{
-          background: #5D008B;
-        }
-      }
-    }
-  }
 </style>

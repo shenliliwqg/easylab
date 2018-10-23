@@ -4,7 +4,6 @@
     <headers></headers>
     <router-view></router-view>
     <footers></footers>
-    <bounce></bounce>
   </div>
 </template>
 <!--行为-->
