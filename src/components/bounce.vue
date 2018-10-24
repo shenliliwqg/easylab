@@ -6,7 +6,7 @@
             <slot name="storeState"></slot>
           </div>
           <div class="btns">
-            <button class="save btn">
+            <button class="save btn" @click="clickSave">
               保存
             </button>
             <button class="btn cancel" @click="maskHide">取消</button>
@@ -26,10 +26,15 @@
       },
     methods:{
       maskHide:function () {
-       console.log(this.maskShow)
+        //两个参数：参数1 key 参数2：数据集
+        this.$emit('clickCancel',false)
+      },
+      clickSave:function () {
+        //两个参数：参数1 key 参数2：数据集
+        this.$emit('clickSave',false)
       }
     }
-    }
+  }
 
 
 </script>

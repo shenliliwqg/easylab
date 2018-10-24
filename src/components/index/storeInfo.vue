@@ -31,15 +31,15 @@
               <b v-else class="state rest" >暂停营业</b></span>
       <a href="#" class="btn" @click="editShopState" id="editState">修改</a>
     </p>
-    <bounce :maskTitle="maskTitle" v-show="maskShow">
+    <bounce :maskTitle="maskTitle" v-show="maskShow" @clickCancel="clickCancel" @clickSave="clickSave">
       <div class="storeState" slot="storeState">
         <div class="img opening">
         </div>
         <p>
-          <span><input type="radio" id="opening" @click="currentShopState=true" name="storeState" checked><b></b></span>
+          <span><input type="radio" id="opening" @click="selectShopState=true" name="storeState" checked><b></b></span>
           <label for="opening">营业中</label>
           <span>
-             <input type="radio" @click="currentShopState=false" id="rest"  name="storeState">
+             <input type="radio" @click="selectShopState=false" id="rest"  name="storeState">
              <b></b>
           </span>
           <label for="rest">暂停营业</label>
@@ -57,6 +57,7 @@
             maskShow:false,
             maskTitle:'修改店铺状态',
             currentShopState:false,
+            selectShopState:true,
           }
       },
       props:{
@@ -72,6 +73,13 @@
         //  保存店铺状态
         saveState:function () {
          this.maskShow=false;
+        },
+        clickCancel:function (data) {
+          this.maskShow=data;
+        },
+        clickSave:function (data) {
+          this.currentShopState=this.selectShopState;
+          this.maskShow=data;
         }
       },
       // mounted(){
