@@ -6,9 +6,7 @@
       </div>
       <div id="mainContent" class="fl">
         <!--平台公告-->
-        <div id="platformAnnouncement">
-          <b></b><span>平台公告：2018年8月1日起，平台将对所有服务方店铺进行审查，没有认证的店铺将被强制停业整顿，直到认证通过!</span>
-        </div>
+        <platformAnnouncement></platformAnnouncement>
         <!--概况-->
         <Situation></Situation>
         <!--待办事项-->
@@ -86,6 +84,7 @@
   import Situation from './situation'
   import Todo from './todo'
   import StoreInfo from './storeInfo'
+  import platformAnnouncement from './platformAnnouncement'
 
     export default {
       name: "index",
@@ -95,7 +94,8 @@
         businessDelivery,
         Situation,
         Todo,
-        StoreInfo
+        StoreInfo,
+        platformAnnouncement
       },
       data () {
         return {
@@ -202,25 +202,6 @@
   }
   #rightContent{
     width:240/1200*100%;
-  }
-  /**/
-  #platformAnnouncement{
-    background: #fff;
-    height:36px;
-    line-height:36px;
-    padding: 0 18px;
-    color: #C11920;
-    margin-bottom: 15px;
-    b{
-      display: inline-block;
-      width:20px;
-      background: #DC2229;
-      vertical-align: top;
-      position: relative;
-      top: 10px;
-      margin-right: 10px;
-      height:16px;
-    }
   }
   /*预约动态*/
   #businessDelivery{

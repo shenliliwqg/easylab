@@ -11,10 +11,11 @@ Vue.use(VueAwesomeSwiper)
 import 'swiper/dist/css/swiper.css'
 //引入公用的弹窗js
 import bounce from './assets/js/bounce'
+import axios from 'axios'
+Vue.prototype.$axios=axios
 Vue.use(bounce);
 //全局注册组件
 Vue.component("bounce",Bounce)
-
 
 Vue.config.productionTip = false
 
