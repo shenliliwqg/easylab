@@ -15,13 +15,17 @@
         },
       created(){
           var $this=this;
-          console.log(this)
           this.$axios.get('http://59.110.161.56:82/UserHome/get_system_notice')
             .then(function (response) {
               // gohandle success
               var data=response.data.data;
-              $this.msg=data.abstract;
-              $this.showHide=true
+              if(data.status){
+
+                $this.msg=data.abstract;
+                $this.showHide=true
+              }else{
+                $this.showHide=false
+              }
             })
             .catch(function (error) {
               // handle error

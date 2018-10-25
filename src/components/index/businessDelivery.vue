@@ -6,7 +6,7 @@
       <span class="checkbox"><input type="checkbox" v-model="checked" v-on:click='checkedAll' id="selectAll"><b></b></span>
       <button v-on:click="alreadConnect">设为已联系</button>
       <b>是否已联系</b>
-      <select name="" id="">
+      <select name="" id="" >
         <option value="全部">全部</option>
         <option value="否">否</option>
         <option value="是">是</option>
@@ -25,7 +25,7 @@
       <tbody>
         <tr v-for="(item,index) in businessList">
           <td>
-            <span class="checkbox"><input v-model='checkboxModel[index]' v-on:click="clickOne(index)" type="checkbox"><b></b></span>
+            <span class="checkbox"><input v-model='checkboxModel[index]' v-on:click='checkedOne' type="checkbox"><b></b></span>
             <span class="time">{{item.time}}</span>
           </td>
           <td>{{item.uname}}</td>
@@ -36,7 +36,6 @@
               <div class="checkbox">
                 <input class="yesOrNo" type="checkbox"
                        v-model="yesOrNo[index]"
-                       v-bind:checked="yesOrNo[index]"
                        v-bind:data-target="index"/>
                 <label></label>
                 <span class="yes">是</span>
@@ -48,7 +47,7 @@
       </tbody>
     </table>
   </div>
-</div>
+  </div>
 </template>
 <script>
     export default {
@@ -64,14 +63,15 @@
       },
       //定义方法
       methods:{
-        clickOne:function () {
-
-        },
         alreadConnect:function () {
 
         },
         checkedAll:function () {
 
+        },
+        checkedOne:function () {
+          console.log(this.checkboxModel)
+          console.log(this.checked)
         }
       },
       created(){
