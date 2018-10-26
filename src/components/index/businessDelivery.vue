@@ -3,7 +3,7 @@
   <p>你的联系方式被查看了<b>165次</b>，请及时联系不要错过商机，超过3天的商机将隐藏，如需重新获取请联系易科学平台。</p>
   <div class="scaners">
     <div>
-      <span class="checkbox"><input type="checkbox" v-model="checked" v-on:click='checkedAll' id="selectAll"><b></b></span>
+      <span class="checkbox"><input type="checkbox" :checked="checked"  @click="checkedAll"  id="selectAll"><b></b></span>
       <button v-on:click="alreadConnect">设为已联系</button>
       <b>是否已联系</b>
       <select name="" id="" >
@@ -25,7 +25,7 @@
       <tbody>
         <tr v-for="(item,index) in businessList">
           <td>
-            <span class="checkbox"><input v-model='checkboxModel[index]' v-on:click='checkedOne' type="checkbox"><b></b></span>
+            <span class="checkbox"><input v-model='checkboxModel[index]' type="checkbox"><b></b></span>
             <span class="time">{{item.time}}</span>
           </td>
           <td>{{item.uname}}</td>
@@ -34,9 +34,8 @@
           <td>
             <section class="model-3">
               <div class="checkbox">
-                <input class="yesOrNo" type="checkbox"
-                       v-model="yesOrNo[index]"
-                       v-bind:data-target="index"/>
+                <input :checked="item.isChecked" class="yesOrNo" type="checkbox"
+                                 v-bind:data-target="index"/>
                 <label></label>
                 <span class="yes">是</span>
                 <span class="no">否</span>
@@ -58,7 +57,8 @@
             businessList:[],
             checked:false,
             isConnect:[],
-            yesOrNo:[]
+            yesOrNo:[],
+            len:0
           }
       },
       //定义方法
@@ -66,12 +66,31 @@
         alreadConnect:function () {
 
         },
+        //如果选中了全选
         checkedAll:function () {
-
+          this.checked=!this.checked
+          if(this.checked){
+            for(let i=0;i<this.len;i++) {
+              this.checkboxModel[i]=true
+            }
+          }else{
+            for(let i=0;i<this.len;i++) {
+              this.checkboxModel[i]=false
+            }
+          }
         },
-        checkedOne:function () {
-          console.log(this.checkboxModel)
-          console.log(this.checked)
+    checkedOne:function (checkboxModel) {
+         // console.log()
+          if(checkboxModel.indexOf(false)==-1){
+            this.checked=true
+          }else{
+            this.checked=false
+          }
+        }
+      },
+      watch:{
+        checkboxModel(index){
+          this.checkedOne(index)
         }
       },
       created(){
@@ -81,7 +100,7 @@
             uname:'张老师',
             phone:'15600231689',
             apparatus_service:'XRF X射线荧光光谱测试',
-            isChecked:false
+            isChecked:true
           },
           {
             time:'2018-02-06 10:12',
@@ -98,7 +117,10 @@
             isChecked:true
           }
         ];
-        // this.ready();
+        this.len=this.businessList.length;
+        for(let i=0;i<this.len;i++) {
+          this.checkboxModel.push(false)
+        }
       }
     }
 </script>
