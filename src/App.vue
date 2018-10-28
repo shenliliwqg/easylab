@@ -110,12 +110,14 @@ export default {
   /*flex*/
   .flex{
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
+    display:-webkit-flex;
+    display: flex;
     .flex-1{
       -webkit-box-flex: 1;/*2,3*/
       -moz-box-flex: 1;/*2,3*/
       -ms-flex: 1;/*2,3*/
+      width: 100%;
     }
   }
   .information h1{
