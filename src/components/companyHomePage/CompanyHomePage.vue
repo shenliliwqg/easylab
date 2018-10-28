@@ -27,13 +27,11 @@
         <li>
           <router-link to="/">
             <div class="img">
-
             </div>
           </router-link>
         </li>
       </ul>
     </div>
-
   </div>
 </div>
 </template>
