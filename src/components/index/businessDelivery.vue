@@ -6,10 +6,10 @@
       <span class="checkbox"><input type="checkbox" :checked="checked"  @click="checkedAll"  id="selectAll"><b></b></span>
       <button v-on:click="alreadConnect">设为已联系</button>
       <b>是否已联系</b>
-      <select name="" id="" >
-        <option value="全部">全部</option>
-        <option value="否">否</option>
-        <option value="是">是</option>
+      <select name="" id=""  v-model="selectYesOrNo">
+        <option value="all">全部</option>
+        <option value='false'>否</option>
+        <option value="true">是</option>
       </select>
     </div>
     <table width="100%">
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in businessList">
+        <tr v-for="(item,index) in businessList" v-show="item.isChecked==showOrHide || selectYesOrNo=='all'">
           <td>
             <span class="checkbox"><input v-model='checkboxModel[index]' type="checkbox"><b></b></span>
             <span class="time">{{item.time}}</span>
@@ -34,7 +34,7 @@
           <td>
             <section class="model-3">
               <div class="checkbox">
-                <input :checked="item.isChecked" class="yesOrNo" type="checkbox"
+                <input v-model="item.isChecked" class="yesOrNo" type="checkbox"
                                  v-bind:data-target="index"/>
                 <label></label>
                 <span class="yes">是</span>
@@ -46,7 +46,7 @@
       </tbody>
     </table>
   </div>
-  </div>
+</div>
 </template>
 <script>
     export default {
@@ -58,13 +58,19 @@
             checked:false,
             isConnect:[],
             yesOrNo:[],
-            len:0
+            len:0,
+            selectYesOrNo:"all",
+            showOrHide:true
           }
       },
       //定义方法
       methods:{
         alreadConnect:function () {
-
+            for(let i=0;i<this.len;i++){
+              if(this.checkboxModel[i]){
+                this.businessList[i].isChecked=true
+              }
+            }
         },
         //如果选中了全选
         checkedAll:function () {
@@ -79,18 +85,27 @@
             }
           }
         },
-    checkedOne:function (checkboxModel) {
-         // console.log()
+        checkedOne:function (checkboxModel) {
           if(checkboxModel.indexOf(false)==-1){
             this.checked=true
           }else{
             this.checked=false
           }
+        },
+        selectChange:function (selectYesOrNo) {
+         if(selectYesOrNo=='false'){
+           this.showOrHide=false
+         }else if(selectYesOrNo=='true'){
+           this.showOrHide=true
+         }
         }
       },
       watch:{
         checkboxModel(index){
           this.checkedOne(index)
+        },
+        selectYesOrNo(value){
+          this.selectChange(value)
         }
       },
       created(){
@@ -120,6 +135,7 @@
         this.len=this.businessList.length;
         for(let i=0;i<this.len;i++) {
           this.checkboxModel.push(false)
+          this.yesOrNo.push(false)
         }
       }
     }
