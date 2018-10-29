@@ -5,15 +5,15 @@
       <div class="container">
         <div class="fl">
           <div class="dropdown fl">
-            <p class="dropdown_arrow"><a href="">甄老师</a></p>
+            <p class="dropdown_arrow"><a >甄老师</a></p>
             <div class="dropdown_content">
-              <p><a href="">个人中心</a></p>
-              <p><a href="">实验服务</a></p>
-              <p><a href="">需求大厅</a></p>
+              <p><a >个人中心</a></p>
+              <p><a >实验服务</a></p>
+              <p><a >需求大厅</a></p>
             </div>
           </div>
           <div class="message fl">
-            <a href="">
+            <a >
               <u></u>
               <span>新消息</span>
               <b>99</b>
@@ -24,20 +24,20 @@
           <div class="dropdown fl">
             <p class="dropdown_arrow"><a href="www.yikexue.com">易科学首页</a></p>
             <div class="dropdown_content fl">
-              <p><a href="">仪器共享</a></p>
-              <p><a href="">实验服务</a></p>
-              <p><a href="">需求大厅</a></p>
+              <p><a >仪器共享</a></p>
+              <p><a >实验服务</a></p>
+              <p><a >需求大厅</a></p>
             </div>
           </div>
           <div class="dropdown fl">
-            <p class="dropdown_arrow"><a href="">我的易科学</a></p>
+            <p class="dropdown_arrow"><a >我的易科学</a></p>
             <div class="dropdown_content fl">
-              <p><a href="">卖家中心</a></p>
-              <p><a href="">买家中心</a></p>
+              <p><a >卖家中心</a></p>
+              <p><a >买家中心</a></p>
             </div>
           </div>
           <div class="help fl">
-              <a href="">帮助中心</a>
+              <a >帮助中心</a>
           </div>
         </div>
       </div>
@@ -49,25 +49,21 @@
           <img src="../assets/images/logo.png" alt="">
         </div>
         <div class="fl navs">
-          <ul>
-            <li class="fl">
-              <a href="#">
+          <ul >
+            <li v-bind:class="['fl',{'active':currentClick==0}]" @click="addActiveClass(0)">
                 <router-link to="/">首页</router-link>
-              </a>
-
             </li>
-            <li class="fl dropdown">
+            <li v-bind:class="['fl','dropdown',{'active':currentClick==1}]" @click="addActiveClass(1)">
               <p class="dropdown_arrow">
-                <a href="">基础设置</a>
+                <a >基础设置</a>
               </p>
               <div class="dropdown_content">
               </div>
             </li>
-            <li class="fl">
-                <a href="">获客渠道</a>
+            <li v-bind:class="['fl',{'active':currentClick==2}]" @click="addActiveClass(2)">
+                <a >获客渠道</a>
             </li>
-            <li class="fl">
-              <a href="#"></a>
+            <li v-bind:class="['fl',{'active':currentClick==3}]" @click="addActiveClass(3)">
                 <router-link to="/compay">公司主页</router-link>
             </li>
           </ul>
@@ -82,9 +78,14 @@
     name: "headers",
     data(){
       return {
-        msg:'headers'
+        msg:'headers',
+        currentClick:0
       }
-
+    },
+    methods:{
+      addActiveClass:function (index) {
+        this.currentClick=index
+      }
     }
   }
 </script>
@@ -179,8 +180,14 @@
           border-top-color: #fff;
         }
         &:hover{
-          background:darken(rgba(94,7,140,1),10%);
+          background:darken(rgba(94,7,140,1),5%);
         }
+      }
+      li{
+        cursor: pointer;
+      }
+      li.active{
+        background:darken(rgba(94,7,140,1),10%);
       }
       .dropdown{
         height: 60px;
