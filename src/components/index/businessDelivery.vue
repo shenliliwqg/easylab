@@ -34,7 +34,7 @@
           <td>
             <section class="model-3">
               <div class="checkbox">
-                <input :checked="item.isChecked" class="yesOrNo" type="checkbox"
+                <input v-model="item.isChecked" class="yesOrNo" type="checkbox"
                                  v-bind:data-target="index"/>
                 <label></label>
                 <span class="yes">是</span>
