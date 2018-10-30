@@ -9,11 +9,14 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper)
 // require styles
 import 'swiper/dist/css/swiper.css'
+//动态title
+import VueWechatTitle from 'vue-wechat-title';
+Vue.use(VueWechatTitle)
 //引入公用的弹窗js
 import bounce from './assets/js/bounce'
 import axios from 'axios'
 Vue.prototype.$axios=axios
-Vue.use(bounce);
+Vue.use(bounce)
 //全局注册组件
 Vue.component("bounce",Bounce)
 

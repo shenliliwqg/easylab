@@ -1,5 +1,5 @@
 <template>
-    <div class="container content" >
+    <div class="container content"  v-wechat-title="$route.meta.title">
       <!--常用管理-->
       <div id="commonManage" class="fl">
         <commonManage :managementList="managementList"></commonManage>

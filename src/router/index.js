@@ -10,12 +10,19 @@ export default new Router({
     {
       path: '/',
       name:'index',
-      component: Index
+      component: Index,
+      meta:{
+        title:'工作台'
+      }
     } ,
     {
       path: '/compay',
       name:'compay',
-      component: CompanyHomePage
+      component: CompanyHomePage,
+      meta:{
+        title:'公司主页'
+      }
     }
   ]
 })
+
