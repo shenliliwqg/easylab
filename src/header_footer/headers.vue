@@ -46,7 +46,8 @@
     <div id="nav">
       <div class="container">
         <div id="logo" class="fl">
-          <img src="../assets/images/logo.png" alt="">
+          <router-link to="/" target="_blank"><img src="../assets/images/logo.png" alt=""></router-link>
+
         </div>
         <div class="fl navs">
           <ul >
@@ -65,6 +66,9 @@
             </li>
             <li v-bind:class="['fl',{'active':currentClick==3}]" @click="addActiveClass(3)">
                 <router-link to="/compay">公司主页</router-link>
+            </li>
+            <li v-bind:class="['fl',{'active':currentClick==4}]" @click="addActiveClass(4)">
+                <router-link to="/test">路由嵌套</router-link>
             </li>
           </ul>
         </div>
